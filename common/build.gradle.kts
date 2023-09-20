@@ -20,6 +20,7 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
+                api("org.hisp.dhis.mobile:designsystem:1.0-SNAPSHOT")
             }
         }
         val commonTest by getting {
@@ -31,6 +32,7 @@ kotlin {
             dependencies {
                 api("androidx.appcompat:appcompat:1.5.1")
                 api("androidx.core:core-ktx:1.9.0")
+                implementation("org.hisp.dhis:android-core:1.9.0-SNAPSHOT")
             }
         }
         val androidTest by getting {
