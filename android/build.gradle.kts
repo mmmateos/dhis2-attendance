@@ -14,7 +14,9 @@ repositories {
 dependencies {
     implementation(project(":common"))
     implementation("androidx.activity:activity-compose:1.5.0")
-    implementation("org.hisp.dhis:android-core:1.9.0-SNAPSHOT")
+    implementation("org.hisp.dhis:android-core:1.9.0-SNAPSHOT") {
+        exclude(group = "com.github.dhis2", module = "sms-compression")
+    }
 }
 
 android {
