@@ -1,21 +1,23 @@
 package com.example.common
 
-import androidx.compose.material.Text
-import androidx.compose.material.Button
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import com.example.common.model.AttendanceTei
+import org.hisp.dhis.mobile.ui.designsystem.theme.DHIS2Theme
 
 @Composable
 fun App() {
-    var text by remember { mutableStateOf("Hello, World!") }
-    val platformName = getPlatformName()
-
-    Button(onClick = {
-        text = "Hello, ${platformName}"
-    }) {
-        Text(text)
+    DHIS2Theme {
+        LazyColumn {
+            items(8) {
+                AttendanceItem(
+                    AttendanceTei(
+                        firstName = "Manu",
+                        lastName = "Muñoz",
+                        attend = false,
+                    ),
+                )
+            }
+        }
     }
 }

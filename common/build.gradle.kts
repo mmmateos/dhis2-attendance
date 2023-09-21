@@ -19,7 +19,8 @@ kotlin {
             dependencies {
                 api(compose.runtime)
                 api(compose.foundation)
-                api(compose.material)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                api(compose.material3)
                 api("org.hisp.dhis.mobile:designsystem:1.0-SNAPSHOT")
             }
         }
@@ -32,7 +33,6 @@ kotlin {
             dependencies {
                 api("androidx.appcompat:appcompat:1.5.1")
                 api("androidx.core:core-ktx:1.9.0")
-                implementation("org.hisp.dhis:android-core:1.9.0-SNAPSHOT")
             }
         }
         val androidTest by getting {
@@ -57,7 +57,7 @@ android {
         targetSdkVersion(33)
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
