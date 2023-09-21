@@ -22,6 +22,10 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 api(compose.material3)
                 api("org.hisp.dhis.mobile:designsystem:1.0-SNAPSHOT")
+
+                {
+                    exclude(group = "androidx.emoji2")
+                }
             }
         }
         val commonTest by getting {
@@ -35,11 +39,11 @@ kotlin {
                 api("androidx.core:core-ktx:1.9.0")
             }
         }
-        val androidTest by getting {
+        /*val androidTest by getting {
             dependencies {
                 implementation("junit:junit:4.13.2")
             }
-        }
+        }*/
         val desktopMain by getting {
             dependencies {
                 api(compose.preview)
@@ -50,14 +54,14 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(33)
+    compileSdkVersion(34)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(24)
         targetSdkVersion(33)
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
