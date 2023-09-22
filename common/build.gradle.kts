@@ -37,6 +37,10 @@ kotlin {
             dependencies {
                 api("androidx.appcompat:appcompat:1.5.1")
                 api("androidx.core:core-ktx:1.9.0")
+                implementation("org.hisp.dhis:android-core:1.9.0-SNAPSHOT") {
+                    exclude(group = "com.github.dhis2", module = "sms-compression")
+                }
+
             }
         }
         /*val androidTest by getting {
